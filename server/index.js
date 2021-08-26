@@ -9,6 +9,7 @@ const models = require("./models/index.js")
 const loginController = require("./controller/user/loginController")
 const registerContler = require("./controller/user/registerController")
 const infoController = require("./controller/user/infoController")
+const matchHistory = require("./controller/search/matchHistory.js")
 
 
 app.use(express.json());
@@ -24,12 +25,16 @@ app.use(
 /**
  * 유저 컨트롤러 
  */
-app.post('/user/callback' ,loginController )
+app.get('/user/callback' ,loginController )
 
 app.post('/user', registerContler)
 
+// Post 는 생성 하는 것 외에는 
+// 
+
 app.get("/user/info", infoController)
 
+app.get("/serach/match", matchHistory)
 /**
  * 서버 열기 
  */
