@@ -30,8 +30,26 @@ Object.keys(db).forEach(modelName => {
     db[modelName].associate(db);
   }
 });
-
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
+
+
+const {users, decks, decks_champions, champions} = sequelize.models
+
+
+decks.belongsTo(users,{
+  foreignKey : "user_id"
+})
+users.hasMany(decks)
+
+decks_champions.belongsTo(decks,{
+  foreignKey: "deck_id"
+  
+})
+decks.hasMany(decks_champions)
+
+champions.belongsTo(decks_champions,{
+})
+decks_champions.hasMany(champions)
 
 module.exports = db;
