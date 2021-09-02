@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import MainPage from '../pages/MainPage';
 import MyPage from '../pages/MyPage';
-import HistorySearch from '../pages/HistorySearch';
+import HistorySearch from '../pages/HistorySearch.jsx';
 import Login from '../pages/Login';
 import UserInfo from '../components/UserInfo';
 
