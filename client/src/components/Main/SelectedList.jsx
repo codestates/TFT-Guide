@@ -8,15 +8,18 @@ const SelectedList = ({
   handleDragEnter,
   handleSlotDragStart,
   handleSlotDragEnd,
+  handleRemoveFromSlot,
 }) => {
   const mappedSlots = slots.map((champion, idx) => (
     <Slot
       key={idx}
+      idx={idx}
       isDark={isDark}
       {...champion}
       handleDragEnter={e => handleDragEnter(e, idx)}
       handleSlotDragStart={e => handleSlotDragStart(e, idx)}
       handleSlotDragEnd={handleSlotDragEnd}
+      handleRemoveFromSlot={handleRemoveFromSlot}
     />
   ));
 
@@ -25,6 +28,7 @@ const SelectedList = ({
 
 const SelectedContainer = styled.div`
   display: flex;
+  //padding-left: 10px;
   & > *:nth-child(even) {
     margin-top: 122px;
     margin-left: -45px;

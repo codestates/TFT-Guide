@@ -1,20 +1,15 @@
 import styled from 'styled-components';
 
-const ChampionBox = ({ kr_name, champion, cost, handleClick, handleDragStart, handleDragEnd }) => {
-  const champName = champion.name === 'ChoGath' ? 'Chogath' : champion.name;
-  const champImgSrc = `${process.env.REACT_APP_CHAMP_IMG_SRC}/${champName}.png`;
+import { costColorMapper } from '../../utils/constants';
 
+const ChampionBox = ({ name, kr_name, cost, scrollable }) => {
+  if (name === 'ChoGath') name = 'Chogath';
+  const champImgSrc = `${process.env.REACT_APP_CHAMP_IMG_SRC}/${name}.png`;
   const color = costColorMapper[cost];
 
   return (
-    <Wrapper>
-      <ChampionContainer
-        borderColor={color}
-        draggable
-        onDragStart={handleDragStart}
-        onDragEnd={handleDragEnd}
-        onClick={() => handleClick(champion)}
-      >
+    <Wrapper scrollable={scrollable}>
+      <ChampionContainer borderColor={color}>
         <ChampionImg src={champImgSrc} />
         <ChampionCost bgColor={color}>${cost}</ChampionCost>
         <ChampionName>{kr_name}</ChampionName>
@@ -23,20 +18,15 @@ const ChampionBox = ({ kr_name, champion, cost, handleClick, handleDragStart, ha
   );
 };
 
-const costColorMapper = {
-  1: '#808080',
-  2: '#11b288',
-  3: '#207ac7',
-  4: '#c440da',
-  5: '#ffb93b',
-};
-
 const Wrapper = styled.div`
   width: 100%;
+  min-width: ${({ scrollable }) => (scrollable ? '52px' : '56px')};
   height: 100%;
   padding: 1px;
-  & {
-    cursor: pointer;
+  @media (max-width: 1200px) {
+    width: 40px;
+    min-width: 40px;
+    height: 40px;
   }
 `;
 
@@ -48,11 +38,13 @@ const ChampionContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 7px;
 `;
 
 const ChampionImg = styled.img`
   width: 100%;
   height: 100%;
+  border-radius: 7px;
 `;
 
 const ChampionCost = styled.div`
@@ -63,24 +55,17 @@ const ChampionCost = styled.div`
   background-color: ${({ bgColor }) => bgColor};
   text-align: center;
   font-size: 0.8rem;
-  padding: 1px 1px 1px 3px;
 `;
 
 const ChampionName = styled.div`
   position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0.3rem;
   color: white;
-  text-align: center;
-  font-size: 0.7vw;
+  bottom: 0.3rem;
+  font-size: 10px;
   font-weight: bold;
   text-shadow: 2px 2px 1px black;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
   @media (max-width: 1200px) {
-    font-size: 8px;
+    font-size: 7px;
   }
 `;
 
