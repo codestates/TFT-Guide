@@ -1,16 +1,14 @@
 # 🎮 `TFT-Guide`
 <img src="https://user-images.githubusercontent.com/80196999/131866159-b26e8ab4-8a74-4e15-b3e7-d9bb913d7ae5.png" width="200" height="200"/>
 
-`TFT`를 시작하고 싶은데 어떻게 할지 모를 때.
+TFT를 처음 플레이하는 초보자들이 사용할 수 있는 서비스입니다.  
 
-만년 꼴등에서 벗어나고 싶을 때.
+나만의 덱을 만들면서 덱을 강화하기 위한 챔프들을 추천받아보세요.  
 
-당신의 승리에는 `가이드`가 필요합니다!
-
-초보자를 위한 승리 서포터, **TFT-Guide**입니다. 
+다른 플레이어가 사용한 덱을 검색해보고 활용할 수도 있습니다.
 
 # `배포`
-https://tft-5-guide.netlify.app/
+https://tft-5-guide.netlify.app
 
 <br/>
 
